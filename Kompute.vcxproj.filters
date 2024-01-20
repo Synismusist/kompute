@@ -1,71 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="include">
-      <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\kompute">
-      <UniqueIdentifier>{BD1A9C73-29A6-0938-32B7-8C2C9EC16538}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\kompute\logger">
-      <UniqueIdentifier>{0C2E460E-F827-6F60-E194-0571CD2DD5CC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\kompute\operations">
-      <UniqueIdentifier>{10746AF0-FC83-16C1-653D-7BDF516C055A}</UniqueIdentifier>
-    </Filter>
     <Filter Include="logger">
       <UniqueIdentifier>{4507DF0B-31A9-09E2-1A64-1D3606A59032}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\include\ShaderLogisticRegression.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\ShaderOpMult.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\Algorithm.hpp">
-      <Filter>include\kompute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\Core.hpp">
-      <Filter>include\kompute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\Kompute.hpp">
-      <Filter>include\kompute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\Manager.hpp">
-      <Filter>include\kompute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\Sequence.hpp">
-      <Filter>include\kompute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\Tensor.hpp">
-      <Filter>include\kompute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\logger\Logger.hpp">
-      <Filter>include\kompute\logger</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpAlgoDispatch.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpBase.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpMemoryBarrier.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpMult.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpTensorCopy.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpTensorSyncDevice.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\include\kompute\operations\OpTensorSyncLocal.hpp">
-      <Filter>include\kompute\operations</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algorithm.cpp" />

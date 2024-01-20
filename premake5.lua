@@ -9,7 +9,7 @@ project "Kompute"
 
 	files
 	{
-		"src/**.hpp","src/**.cpp"
+		"src/**.cpp"
 	}
 
 	includedirs
@@ -36,7 +36,7 @@ project "Kompute"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines { "KOMPUTE_OPT_LOG_LEVEL_DISABLED","KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS" }
+	defines { "KOMPUTE_OPT_LOG_LEVEL_DISABLED","KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS" }
 		runtime "Debug"
 		symbols "on"
 

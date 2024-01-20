@@ -127,6 +127,7 @@ Algorithm::destroy()
 void
 Algorithm::createParameters()
 {
+    vk::Result err;
     KP_LOG_DEBUG("Kompute Algorithm createParameters started");
 
     std::vector<vk::DescriptorPoolSize> descriptorPoolSizes = {
@@ -144,8 +145,14 @@ Algorithm::createParameters()
 
     KP_LOG_DEBUG("Kompute Algorithm creating descriptor pool");
     this->mDescriptorPool = std::make_shared<vk::DescriptorPool>();
-    this->mDevice->createDescriptorPool(
-      &descriptorPoolInfo, nullptr, this->mDescriptorPool.get());
+    {
+        err = this->mDevice->createDescriptorPool(
+          &descriptorPoolInfo, nullptr, this->mDescriptorPool.get());
+        if (err != vk::Result::eSuccess) {
+            throw std::runtime_error("Error creating descriptor pool.");
+        }
+    }
+
     this->mFreeDescriptorPool = true;
 
     std::vector<vk::DescriptorSetLayoutBinding> descriptorSetBindings;
@@ -165,8 +172,13 @@ Algorithm::createParameters()
 
     KP_LOG_DEBUG("Kompute Algorithm creating descriptor set layout");
     this->mDescriptorSetLayout = std::make_shared<vk::DescriptorSetLayout>();
-    this->mDevice->createDescriptorSetLayout(
-      &descriptorSetLayoutInfo, nullptr, this->mDescriptorSetLayout.get());
+    {
+        err = this->mDevice->createDescriptorSetLayout(
+          &descriptorSetLayoutInfo, nullptr, this->mDescriptorSetLayout.get());
+        if (err != vk::Result::eSuccess) {
+            throw std::runtime_error("Error creating descriptor set layout.");
+        }
+    }
     this->mFreeDescriptorSetLayout = true;
 
     vk::DescriptorSetAllocateInfo descriptorSetAllocateInfo(
@@ -176,8 +188,13 @@ Algorithm::createParameters()
 
     KP_LOG_DEBUG("Kompute Algorithm allocating descriptor sets");
     this->mDescriptorSet = std::make_shared<vk::DescriptorSet>();
-    this->mDevice->allocateDescriptorSets(&descriptorSetAllocateInfo,
-                                          this->mDescriptorSet.get());
+    {
+        err = this->mDevice->allocateDescriptorSets(&descriptorSetAllocateInfo,
+                                              this->mDescriptorSet.get());
+        if (err != vk::Result::eSuccess) {
+            throw std::runtime_error("Error allocating descriptor sets.");
+        }
+    }
     this->mFreeDescriptorSet = true;
 
     KP_LOG_DEBUG("Kompute Algorithm updating descriptor sets");
@@ -196,8 +213,10 @@ Algorithm::createParameters()
                                  nullptr, // Descriptor image info
                                  &descriptorBufferInfo));
 
+        
         this->mDevice->updateDescriptorSets(computeWriteDescriptorSets,
-                                            nullptr);
+                                                nullptr);
+        
     }
 
     KP_LOG_DEBUG("Kompute Algorithm successfully run init");
@@ -217,8 +236,13 @@ Algorithm::createShaderModule()
                  this->mSpirv.size());
     this->mFreeShaderModule = true;
     this->mShaderModule = std::make_shared<vk::ShaderModule>();
-    this->mDevice->createShaderModule(
-      &shaderModuleInfo, nullptr, this->mShaderModule.get());
+    {
+        auto err = this->mDevice->createShaderModule(
+          &shaderModuleInfo, nullptr, this->mShaderModule.get());
+        if (err != vk::Result::eSuccess) {
+            throw std::runtime_error("Error creating shader module.");
+        }
+    }
     this->mFreeShaderModule = true;
 
     KP_LOG_DEBUG("Kompute Algorithm create shader module success");
@@ -227,6 +251,8 @@ Algorithm::createShaderModule()
 void
 Algorithm::createPipeline()
 {
+    vk::Result err;
+
     KP_LOG_DEBUG("Kompute Algorithm calling create Pipeline");
 
     vk::PipelineLayoutCreateInfo pipelineLayoutInfo(
@@ -246,8 +272,13 @@ Algorithm::createPipeline()
     }
 
     this->mPipelineLayout = std::make_shared<vk::PipelineLayout>();
-    this->mDevice->createPipelineLayout(
-      &pipelineLayoutInfo, nullptr, this->mPipelineLayout.get());
+    {
+        err = this->mDevice->createPipelineLayout(
+          &pipelineLayoutInfo, nullptr, this->mPipelineLayout.get());
+        if (err != vk::Result::eSuccess) {
+            throw std::runtime_error("Error creating pipeline layout.");
+        }
+    }
     this->mFreePipelineLayout = true;
 
     std::vector<vk::SpecializationMapEntry> specializationEntries;
@@ -287,8 +318,13 @@ Algorithm::createPipeline()
     vk::PipelineCacheCreateInfo pipelineCacheInfo =
       vk::PipelineCacheCreateInfo();
     this->mPipelineCache = std::make_shared<vk::PipelineCache>();
-    this->mDevice->createPipelineCache(
-      &pipelineCacheInfo, nullptr, this->mPipelineCache.get());
+    {
+        err = this->mDevice->createPipelineCache(
+          &pipelineCacheInfo, nullptr, this->mPipelineCache.get());
+        if (err != vk::Result::eSuccess) {
+            throw std::runtime_error("Error creating pipeline cache.");
+        }
+    }
     this->mFreePipelineCache = true;
 
 #ifdef KOMPUTE_CREATE_PIPELINE_RESULT_VALUE

@@ -136,24 +136,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\include\ShaderLogisticRegression.hpp" />
-    <ClInclude Include="src\include\ShaderOpMult.hpp" />
-    <ClInclude Include="src\include\kompute\Algorithm.hpp" />
-    <ClInclude Include="src\include\kompute\Core.hpp" />
-    <ClInclude Include="src\include\kompute\Kompute.hpp" />
-    <ClInclude Include="src\include\kompute\Manager.hpp" />
-    <ClInclude Include="src\include\kompute\Sequence.hpp" />
-    <ClInclude Include="src\include\kompute\Tensor.hpp" />
-    <ClInclude Include="src\include\kompute\logger\Logger.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpAlgoDispatch.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpBase.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpMemoryBarrier.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpMult.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpTensorCopy.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpTensorSyncDevice.hpp" />
-    <ClInclude Include="src\include\kompute\operations\OpTensorSyncLocal.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\Algorithm.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>

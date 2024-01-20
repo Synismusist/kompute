@@ -7,6 +7,9 @@
 #include "kompute/Tensor.hpp"
 #include "logger/Logger.hpp"
 
+#include <chrono>
+#include <thread>
+
 namespace kp {
 
 /**
