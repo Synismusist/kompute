@@ -75,8 +75,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>;KOMPUTE_OPT_LOG_LEVEL_DISABLED;KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src\include;C:\Program Files\VulkanSDK\Include;..\fmt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>KOMPUTE_OPT_LOG_LEVEL_DISABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src\include;C:\Program Files\VulkanSDK\Include;..\fmt\include;..\..\Walnut\vendor\spdlog\include;..\..\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -93,8 +93,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>;KOMPUTE_OPT_LOG_LEVEL_DISABLED;KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src\include;C:\Program Files\VulkanSDK\Include;..\fmt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>KOMPUTE_OPT_LOG_LEVEL_DISABLED;KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src\include;C:\Program Files\VulkanSDK\Include;..\fmt\include;..\..\Walnut\vendor\spdlog\include;..\..\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,8 +115,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>;KOMPUTE_OPT_LOG_LEVEL_DISABLED;KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src\include;C:\Program Files\VulkanSDK\Include;..\fmt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>KOMPUTE_OPT_LOG_LEVEL_DISABLED;KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src\include;C:\Program Files\VulkanSDK\Include;..\fmt\include;..\..\Walnut\vendor\spdlog\include;..\..\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -135,6 +135,24 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\include\ShaderLogisticRegression.hpp" />
+    <ClInclude Include="src\include\ShaderOpMult.hpp" />
+    <ClInclude Include="src\include\kompute\Algorithm.hpp" />
+    <ClInclude Include="src\include\kompute\Core.hpp" />
+    <ClInclude Include="src\include\kompute\Kompute.hpp" />
+    <ClInclude Include="src\include\kompute\Manager.hpp" />
+    <ClInclude Include="src\include\kompute\Sequence.hpp" />
+    <ClInclude Include="src\include\kompute\Tensor.hpp" />
+    <ClInclude Include="src\include\kompute\logger\Logger.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpAlgoDispatch.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpBase.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpMemoryBarrier.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpMult.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpTensorCopy.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpTensorSyncDevice.hpp" />
+    <ClInclude Include="src\include\kompute\operations\OpTensorSyncLocal.hpp" />
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algorithm.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -195,6 +213,9 @@
   <ItemGroup>
     <ProjectReference Include="..\fmt\fmt.vcxproj">
       <Project>{4C73880B-B87C-887C-41F8-9E7CAD00947C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logger\Logger.vcxproj">
+      <Project>{25F339C1-1195-6497-FA4F-78EBE690EBE7}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -200,7 +200,7 @@ Manager::createInstance()
         for (const std::string& layerName : envLayerNames) {
             desiredLayerNames.push_back(layerName.c_str());
         }
-        KP_LOG_DEBUG("Desired layers: {}", fmt::join(desiredLayerNames, ", "));
+        //KP_LOG_DEBUG("Desired layers: {}", fmt::join(desiredLayerNames, ", "));
     }
 
     // Identify the valid layer names based on the desiredLayerNames
@@ -212,7 +212,7 @@ Manager::createInstance()
             std::string layerName(layerProperties.layerName.data());
             uniqueLayerNames.insert(layerName);
         }
-        KP_LOG_DEBUG("Available layers: {}", fmt::join(uniqueLayerNames, ", "));
+        //KP_LOG_DEBUG("Available layers: {}", fmt::join(uniqueLayerNames, ", "));
         for (const char* desiredLayerName : desiredLayerNames) {
             if (uniqueLayerNames.count(desiredLayerName) != 0) {
                 validLayerNames.push_back(desiredLayerName);
@@ -221,9 +221,9 @@ Manager::createInstance()
     }
 
     if (!validLayerNames.empty()) {
-        KP_LOG_DEBUG(
-          "Kompute Manager Initializing instance with valid layers: {}",
-          fmt::join(validLayerNames, ", "));
+        //KP_LOG_DEBUG(
+        //  "Kompute Manager Initializing instance with valid layers: {}",
+        //  fmt::join(validLayerNames, ", "));
         computeInstanceCreateInfo.enabledLayerCount =
           static_cast<uint32_t>(validLayerNames.size());
         computeInstanceCreateInfo.ppEnabledLayerNames = validLayerNames.data();
@@ -390,8 +390,8 @@ Manager::createDevice(const std::vector<uint32_t>& familyQueueIndices,
         deviceQueueCreateInfos.push_back(deviceQueueCreateInfo);
     }
 
-    KP_LOG_DEBUG("Kompute Manager desired extension layers {}",
-                 fmt::join(desiredExtensions, ", "));
+    //KP_LOG_DEBUG("Kompute Manager desired extension layers {}",
+                 //fmt::join(desiredExtensions, ", "));
 
     std::vector<vk::ExtensionProperties> deviceExtensions =
       this->mPhysicalDevice->enumerateDeviceExtensionProperties();
@@ -400,8 +400,8 @@ Manager::createDevice(const std::vector<uint32_t>& familyQueueIndices,
     for (const vk::ExtensionProperties& ext : deviceExtensions) {
         uniqueExtensionNames.insert(ext.extensionName);
     }
-    KP_LOG_DEBUG("Kompute Manager available extensions {}",
-                 fmt::join(uniqueExtensionNames, ", "));
+    //KP_LOG_DEBUG("Kompute Manager available extensions {}",
+                 //fmt::join(uniqueExtensionNames, ", "));
     std::vector<const char*> validExtensions;
     for (const std::string& ext : desiredExtensions) {
         if (uniqueExtensionNames.count(ext) != 0) {
@@ -409,8 +409,8 @@ Manager::createDevice(const std::vector<uint32_t>& familyQueueIndices,
         }
     }
     if (desiredExtensions.size() != validExtensions.size()) {
-        KP_LOG_ERROR("Kompute Manager not all extensions were added: {}",
-                     fmt::join(validExtensions, ", "));
+        //KP_LOG_ERROR("Kompute Manager not all extensions were added: {}",
+                     //fmt::join(validExtensions, ", "));
     }
 
     vk::DeviceCreateInfo deviceCreateInfo(vk::DeviceCreateFlags(),

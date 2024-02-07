@@ -95,7 +95,7 @@ setLogLevel(const spdlog::level::level_enum level)
 {
     spdlog::default_logger()->set_level(level);
 }
-#endif // !KOMPUTE_OPT_USE_SPDLOG
+#endif // !KOaMPUTE_OPT_USE_SPDLOG
 } // namespace logger
 
 #endif

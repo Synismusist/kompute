@@ -9,23 +9,22 @@ project "Kompute"
 
 	files
 	{
-		"src/**.cpp"
+		"src/**.hpp", "src/**.cpp"
 	}
 
 	includedirs
 	{  
 		"src/include",
 	   "%{IncludeDir.VulkanSDK}",
-	   "../fmt/include"
+	   "../fmt/include", 
+	   "../../Walnut/vendor/spdlog/include", 
+	   "../../Logger/include",
 	}
  
 	links
 	{
-		"fmt"
-	}
-
-	defines { 
-		"",
+		"fmt",
+		"Logger",
 	}
 
 	filter "system:windows"
@@ -36,7 +35,7 @@ project "Kompute"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-	defines { "KOMPUTE_OPT_LOG_LEVEL_DISABLED","KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS" }
+		defines { "KOMPUTE_OPT_LOG_LEVEL_DISABLED" }
 		runtime "Debug"
 		symbols "on"
 
