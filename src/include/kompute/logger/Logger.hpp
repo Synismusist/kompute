@@ -10,14 +10,19 @@
 #define KOMPUTE_LOG_LEVEL_CRITICAL 5
 #define KOMPUTE_LOG_LEVEL_OFF 6
 
+#ifdef KOMPUTE_OPT_DISABLE_VK_DEBUG_LAYERS
+	#define KOMPUTE_DISABLE_VK_DEBUG_LAYERS 
+#endif
 
 #ifndef KOMPUTE_DISABLE_VK_DEBUG_LAYERS
+	#define KP_LOG_TEST(...)  //std::cout << std::format(__VA_ARGS__).c_str() << std::endl;
 	#define KP_LOG_TRACE(...) //std::cout << std::format(__VA_ARGS__).c_str() << std::endl; 
 	#define KP_LOG_DEBUG(...) //std::cout << std::format(__VA_ARGS__).c_str() << std::endl; 
 	#define KP_LOG_INFO(...)  //std::cout << std::format(__VA_ARGS__).c_str() << std::endl; 
 	#define KP_LOG_WARN(...)  //std::cout << std::format(__VA_ARGS__).c_str() << std::endl;
 	#define KP_LOG_ERROR(...) //std::cout << std::format(__VA_ARGS__).c_str() << std::endl;
 #else
+	#define KP_LOG_TEST(...) 
 	#define KP_LOG_TRACE(...)
 	#define KP_LOG_DEBUG(...)
 	#define KP_LOG_INFO(...)
